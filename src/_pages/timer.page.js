@@ -4,10 +4,12 @@ import { withRouter } from "react-router-dom";
 
 class TimerPage extends component {
 
-    state = {
-    counter:20,
-    strat:false
+  state = {
+        counter: 20,
+        strat: false
     }
+
+    
     goBack = () => {
         this.props.history.push('/');
     }

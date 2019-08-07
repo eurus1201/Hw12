@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import { Clock,ClockButton } from "../_components";
+import React, { Component } from 'react';
+import { Clock, ClockButton } from "../_components";
 import { withRouter } from "react-router-dom";
 
 class ClockPage extends Component {
@@ -9,20 +9,22 @@ class ClockPage extends Component {
     }
 
     changeClockMode = () => {
-        this.setState({clockMode24: !this.state.clockMode24});
+        this.setState({ clockMode24: !this.state.clockMode24 });
     }
 
-    gotoStopWatch = () =>{
+    gotoStopWatch = () => {
         this.props.history.push('/stopwatch')
     }
-
-    render () {
+    gotoTimer = () => {
+        this.props.push('/timer')
+    }
+    render() {
         return <div className="clock-page">
-            <Clock clockMode={this.state.clockMode24}/>
-            <div style={{marginTop: 20,width: 350,justifyContent: 'space-between'}}>
-                <ClockButton onClick = {this.changeClockMode}>24/12</ClockButton>
+            <Clock clockMode={this.state.clockMode24} />
+            <div style={{ marginTop: 20, width: 350, justifyContent: 'space-between' }}>
+                <ClockButton onClick={this.changeClockMode}>24/12</ClockButton>
                 <ClockButton onClick={this.gotoStopWatch}>StopWatch</ClockButton>
-                <ClockButton >Timer</ClockButton>
+                <ClockButton onClick={this.gotoTimer}>Timer</ClockButton>
             </div>
         </div>
     }
@@ -30,4 +32,4 @@ class ClockPage extends Component {
 
 const clockPageWithRouter = withRouter(ClockPage)
 
-export {clockPageWithRouter as ClockPage}
+export { clockPageWithRouter as ClockPage }
