@@ -16,7 +16,7 @@ class ClockPage extends Component {
         this.props.history.push('/stopwatch')
     }
     gotoTimer = () => {
-        this.props.push('/timer')
+        this.props.history.push('/timer')
     }
     render() {
         return <div className="clock-page">

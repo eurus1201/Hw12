@@ -14,7 +14,7 @@ function Timer({ counter }) {
 }
 
 const style = {
-    color: '#FFF',
+    color: '#fff',
     fontSize: 40,
     fontWeight: 'bold'
 };

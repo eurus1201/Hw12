@@ -1,8 +1,8 @@
-import React, { component } from 'react'
+import React, { Component } from 'react'
 import { Timer, ClockButton } from "../_components";
 import { withRouter } from "react-router-dom";
 
-class TimerPage extends component {
+class TimerPage extends Component {
 
   state = {
         counter: 20,
@@ -18,6 +18,9 @@ class TimerPage extends component {
         this.setState({ start: true })
         this.interval = setInterval(() => {
             this.setState({ counter: this.state.counter - 1 })
+            if (this.state.counter===0){
+                clearInterval(this.interval)
+            }
         }, 1000)
     }
     pauseTimer = () => {
@@ -50,7 +53,7 @@ class TimerPage extends component {
 
     render() {
         const { counter } = this.state;
-        return <div className="timer-page">
+        return <div className=" clock-page">
             <Timer counter={counter} />
             
             <div style={{ marginTop: 20, width: 350, justifyContent: 'space-around' }}>
