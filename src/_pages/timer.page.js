@@ -126,15 +126,23 @@ class TimerPage extends Component {
         let hours = ("0" + Math.floor((timerTime / 3600000) % 60)).slice(-2);
 
         return <div className=" clock-page">
-            <Timer timerTime={timerTime} />
-            {/* <div className="Countdown-label">{hours} : {minutes} : {seconds}</div> */}
+           
+          
             <div className="Countdown-display">
-                <button onClick={() => this.adjustTimer("incHours")}>&#8679;</button>
-                <button onClick={() => this.adjustTimer("incMinutes")}>&#8679;</button>
-                <button onClick={() => this.adjustTimer("incSeconds")}>&#8679;</button>
-                <button onClick={() => this.adjustTimer("decHours")}>&#8681;</button>
-                <button onClick={() => this.adjustTimer("decMinutes")}>&#8681;</button>
-                <button onClick={() => this.adjustTimer("decSeconds")}>&#8681;</button>
+                <div className="timerbtn" >
+                    <button onClick={() => this.adjustTimer("incHours")}>&#8679;</button>
+                    <button onClick={() => this.adjustTimer("incMinutes")}>&#8679;</button>
+                    <button onClick={() => this.adjustTimer("incSeconds")}>&#8679;</button>
+                </div>
+               
+                {/* <div className="Countdown-label">{hours} : {minutes} : {seconds}</div> */}
+                <Timer timerTime={timerTime} />
+                <div className="timerbtn" >
+                    <button onClick={() => this.adjustTimer("decHours")}>&#8681;</button>
+                    <button onClick={() => this.adjustTimer("decMinutes")}>&#8681;</button>
+                    <button onClick={() => this.adjustTimer("decSeconds")}>&#8681;</button>
+                </div>
+                
             </div>
             <div style={{ marginTop: 20, width: 350, justifyContent: 'space-around' }}>
                 {this.renderBtn()}

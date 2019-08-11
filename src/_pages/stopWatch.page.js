@@ -24,6 +24,14 @@ class StopWatchPage extends Component {
         this.setState({ laps: this.state.laps.concat([this.state.counter])})
     }
 
+    formattedSeconds=(lap)=>{
+        let Sec1 = lap % 60;
+        let min1 = Math.floor((lap / 60) % 60);
+        let hour = Math.floor((lap - (min1 * 60) - Sec1) / 3600);
+        return (hour.toLocaleString("en", { minimumIntegerDigits: 2 }) + ':' +
+            min1.toLocaleString("en", { minimumIntegerDigits: 2 }) + ':' +
+            Sec1.toLocaleString("en", { minimumIntegerDigits: 2 }));}
+
     pauseStopWatch = () => {
         this.setState({
             start: false,
@@ -56,12 +64,19 @@ class StopWatchPage extends Component {
     render() {
         const { counter } = this.state;
         return <div className="clock-page">
+
+            <div className="laps">
+                <ul >
+                    {this.state.laps.map((lap, i) =>
+                        <li>
+                            <strong>{i + 1}</strong> /{this.formattedSeconds(lap)}
+                        </li>
+                    )}
+                </ul>
+            </div>
+              
             <StopWatch counter={counter} />
-            <ul>
-                {this.state.laps.map(function(laps,index){
-                    return <li><strong>{index +1 }</strong> /{laps} </li>;
-                })}
-            </ul>
+          
             <div style={{ marginTop: 20, width: 350, justifyContent: 'space-around' }}>
                 {this.renderBtn()}
             </div>

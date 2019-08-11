@@ -22,3 +22,24 @@ div {
 .clock-button:hover{
   background: #eee;
 }
+
+.Countdown-display{
+  display: flex;
+  flex-direction: column;
+}
+.timerbtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timerbtn button{
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  border-radius: 50%;
+  outline: none;
+}
+
+.laps{
+ 
+}
